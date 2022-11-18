@@ -6,7 +6,10 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "lint": "eslint  --ignore-path .gitignore .",
-    "format": "prettier --write --ignore-path .gitignore \"**/*.(json|js|ts)\" "
+    "prettier": "prettier --ignore-path .gitignore \"**/*.(json|js|ts)\"",
+    "format": "npm run prettier -- --write",
+    "format-check": "npm run prettier -- --list-different",
+    "validate": "npm run format-check && npm run lint && npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
